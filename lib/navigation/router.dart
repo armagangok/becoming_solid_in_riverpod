@@ -16,7 +16,7 @@ abstract final class GoRoutes {
             builder: (context, state) => const LoginPage(),
           ),
           GoRoute(
-            path: 'homePage/:dataPassedFromLogin',
+            path: 'homePage',
             builder: (context, state) => HomePage(
               dataPassedFromLogin: state.extra as String?,
             ),
