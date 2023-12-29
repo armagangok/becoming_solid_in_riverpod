@@ -4,7 +4,9 @@ abstract class UserDataState {}
 
 class UserDataInitial extends UserDataState {}
 
-class UserDataLoading extends UserDataState {}
+class UserDataLoading extends UserDataState {
+  UserDataLoading();
+}
 
 class UserDataFailure extends UserDataState {
   UserDataFailure({

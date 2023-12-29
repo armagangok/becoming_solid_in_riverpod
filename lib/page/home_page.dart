@@ -6,7 +6,12 @@ import '../providers/user_data_provider.dart';
 import '../providers/user_data_state.dart';
 
 class HomePage extends ConsumerStatefulWidget {
-  const HomePage({super.key});
+  const HomePage({
+    super.key,
+    required this.dataPassedFromLogin,
+  });
+
+  final String? dataPassedFromLogin;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _HomePageState();
@@ -56,7 +61,7 @@ class _HomePageState extends ConsumerState<HomePage> {
   AppBar _appBar() {
     return AppBar(
       centerTitle: true,
-      title: const Text("data"),
+      title: Text(widget.dataPassedFromLogin ?? "NULL DATA"),
     );
   }
 }
