@@ -4,12 +4,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../services/services.dart';
 
-final userDataProvider = StateNotifierProvider<UserDataNotifier, UserDataState>((ref) {
-  return UserDataNotifier(UserDataInitial());
-});
+final userDataProvider = NotifierProvider<UserDataNotifier, UserDataState>(UserDataNotifier.new);
 
-class UserDataNotifier extends StateNotifier<UserDataState> {
-  UserDataNotifier(super.state);
+class UserDataNotifier extends Notifier<UserDataState> {
+  @override
+  UserDataState build() {
+    state = UserDataInitial();
+    return state;
+  }
 
   Future<void> requestUserData() async {
     state = UserDataLoading();
